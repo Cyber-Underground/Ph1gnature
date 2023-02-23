@@ -1,7 +1,7 @@
 import hashlib
 print("""
   ____________________________________________________________________________________________________
- /|_?_|______________________________________| WELCOME TO |____________________________________|\/|/\|
+ /|__________________________________________| WELCOME TO |__________________________________________|
 | | /$$$$$$$  /$$   /$$   /$$    /$$$$$$  /$$   /$$  /$$$$$$  /$$$$$$$$ /$$   /$$ /$$$$$$$  /$$$$$$$$|
 | || $$__  $$| $$  | $$ /$$$$   /$$__  $$| $$$ | $$ /$$__  $$|__  $$__/| $$  | $$| $$__  $$| $$_____/|
 | || $$  \ $$| $$  | $$|_  $$  | $$  \__/| $$$$| $$| $$  \ $$   | $$   | $$  | $$| $$  \ $$| $$      |
@@ -29,14 +29,15 @@ def main():
     elif data_type == 'S' or data_type == 's':
         data = input('Enter the string: ')
         data = str.encode(data)
-
+        
     # Generate the MD5 sum of the data
     md5 = md5_sum(data)
 
     # Prompt the user for the name of the log file
     log_filename = input('Enter the name of the log file: ')
-    log_location = input('Where eould you like the log file to be saved? WARING: USE FORWARD SLASH ONLY     ')
-    
+    log_location = input('Where eould you like the log file to be saved? ')
+    log_location = log_location.replace("\\", "/")
+
     #adds '.txt' to the name of variable so it can be opened in a text editor
     log_filename = log_location + log_filename + '.txt'
     # Open the log file in append mode
